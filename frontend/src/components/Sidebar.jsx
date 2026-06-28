@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
@@ -13,8 +14,17 @@ function Sidebar() {
     >
       <h2>Inventory</h2>
 
-      <p>🏠 Dashboard</p>
-      <p>🏢 Company</p>
+      <p>
+  <Link to="/dashboard" style={{ color: "white", textDecoration: "none" }}>
+    🏠 Dashboard
+  </Link>
+</p>
+
+<p>
+  <Link to="/company" style={{ color: "white", textDecoration: "none" }}>
+    🏢 Company
+  </Link>
+</p>
       <p>📦 Products</p>
       <p>📋 Orders</p>
       <p>👤 Users</p>
