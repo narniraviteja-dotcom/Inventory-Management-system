@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const { protect } = require("../middleware/authMiddleware");
 const {
   createCompany,
   getAllCompanies,
@@ -9,9 +9,9 @@ const {
   deleteCompany,
 } = require("../controllers/companyControllers");
 
-router.post("/", createCompany);
-router.get("/", getAllCompanies);
-router.get("/:id", getCompanyById);
-router.put("/:id", updateCompany);
-router.delete("/:id", deleteCompany);
+router.post("/", protect, createCompany);
+router.get("/", protect, getAllCompanies);
+router.get("/:id", protect, getCompanyById);
+router.put("/:id", protect, updateCompany);
+router.delete("/:id", protect, deleteCompany);
 module.exports = router;
