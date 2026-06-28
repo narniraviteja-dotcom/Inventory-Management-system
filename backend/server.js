@@ -3,14 +3,14 @@ const cors = require("cors");
 require("dotenv").config();
 const connectDB = require("./config/db");
 const companyRoutes = require("./routes/companyRoutes");
-
+const userRoutes = require("./routes/userRoutes");
 const app = express();
 connectDB();
 
 app.use(cors());
 app.use(express.json());
 app.use("/api/companies", companyRoutes);
-
+app.use("/api/users", userRoutes);
 app.get("/", (req, res) => {
   res.send("Inventory Management Backend Running...");
 });
