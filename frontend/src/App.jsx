@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Company from "./pages/Company";
 import Product from "./pages/Product";
 import Orders from "./pages/Orders";
+import Users from "./pages/Users";
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/company" element={<Company />} />
         <Route path="/product" element={<Product />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/users" element={<Users />} />
       </Routes>
     </BrowserRouter>
   );

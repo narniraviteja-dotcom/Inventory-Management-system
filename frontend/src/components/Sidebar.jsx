@@ -40,7 +40,14 @@ function Sidebar() {
   📦 Orders
 </Link>
 </p>
-      <p>👤 Users</p>
+ <p>
+    <Link
+  to="/users"
+  style={{ color: "white", textDecoration: "none" }}
+>
+  👤 Users
+</Link>
+</p>
       <p>🚪 Logout</p>
     </div>
   );
