@@ -25,13 +25,21 @@ function Sidebar() {
     🏢 Company
   </Link>
 </p>
+<p>
      <Link
   to="/product"
   style={{ color: "white", textDecoration: "none" }}
 >
   📦 Products
 </Link>
-      <p>📋 Orders</p>
+</p>
+<p>
+<Link to="/orders"
+  style={{ color: "white", textDecoration: "none" }}
+>
+  📦 Orders
+</Link>
+</p>
       <p>👤 Users</p>
       <p>🚪 Logout</p>
     </div>
