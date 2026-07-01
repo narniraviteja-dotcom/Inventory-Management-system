@@ -6,6 +6,7 @@ import Company from "./pages/Company";
 import Product from "./pages/Product";
 import Orders from "./pages/Orders";
 import Users from "./pages/Users";
+import Billing from "./pages/Billing";
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +17,7 @@ function App() {
         <Route path="/product" element={<Product />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/billing" element={<Billing />} />
       </Routes>
     </BrowserRouter>
   );

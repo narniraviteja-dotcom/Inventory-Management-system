@@ -48,9 +48,17 @@ function Sidebar() {
   👤 Users
 </Link>
 </p>
-      <p>🚪 Logout</p>
+
+<p>
+  <Link to="/billing" style={{ color: "white", textDecoration: "none" }}>
+    Billing
+  </Link>
+</p>
+<p>🚪 Logout</p>
+
     </div>
   );
+ 
 }
 
 export default Sidebar;
