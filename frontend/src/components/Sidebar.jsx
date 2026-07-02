@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
+  const navigate = useNavigate();
+
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  navigate("/");
+};
   return (
     <div
   style={{
@@ -64,7 +71,16 @@ function Sidebar() {
   </Link>
 </p>
 
-<p style={{ margin: "12px 0", display: "flex", alignItems: "center" }}>
+<p
+  onClick={handleLogout}
+  style={{
+    margin: "12px 0",
+    display: "flex",
+    alignItems: "center",
+    cursor: "pointer",
+    color: "white",
+  }}
+>
   <span style={{ width: "25px", textAlign: "center" }}>🚪</span>
   <span>Logout</span>
 </p>
