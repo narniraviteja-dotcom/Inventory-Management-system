@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 function Billing() {
   const [customerName, setCustomerName] = useState("");
@@ -7,16 +8,29 @@ function Billing() {
   const [price, setPrice] = useState("");
   const [bill, setBill] = useState(null);
 
-  const generateBill = () => {
+  const generateBill = async () => {
     const total = Number(quantity) * Number(price);
 
-    setBill({
+    const billData = {
       customerName,
       productName,
       quantity,
       price,
       total,
-    });
+    };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/bills",
+        billData
+      );
+
+      setBill(response.data);
+      alert("Bill Saved Successfully");
+    } catch (error) {
+      console.log(error);
+      alert("Error saving bill");
+    }
   };
 
   return (
@@ -29,8 +43,7 @@ function Billing() {
         value={customerName}
         onChange={(e) => setCustomerName(e.target.value)}
       />
-      <br />
-      <br />
+      <br /><br />
 
       <input
         type="text"
@@ -38,8 +51,7 @@ function Billing() {
         value={productName}
         onChange={(e) => setProductName(e.target.value)}
       />
-      <br />
-      <br />
+      <br /><br />
 
       <input
         type="number"
@@ -47,8 +59,7 @@ function Billing() {
         value={quantity}
         onChange={(e) => setQuantity(e.target.value)}
       />
-      <br />
-      <br />
+      <br /><br />
 
       <input
         type="number"
@@ -56,14 +67,16 @@ function Billing() {
         value={price}
         onChange={(e) => setPrice(e.target.value)}
       />
-      <br />
-      <br />
+      <br /><br />
 
-      <button onClick={generateBill}>Generate Bill</button>
+      <button onClick={generateBill}>
+        Generate Bill
+      </button>
 
       {bill && (
         <div style={{ marginTop: "20px" }}>
           <h2>Bill</h2>
+
           <p><b>Customer:</b> {bill.customerName}</p>
           <p><b>Product:</b> {bill.productName}</p>
           <p><b>Quantity:</b> {bill.quantity}</p>
